@@ -6,6 +6,10 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '5'))
     }
 
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+
     environment {
         AWS_DEFAULT_REGION = 'us-east-2'
         AWS_ACCOUNT_ID = '373102893310'
